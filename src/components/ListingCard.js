@@ -4,7 +4,7 @@ function ListingCard() {
   return (
     <li className="card">
       <div className="image">
-        <span className="price">${"price"}</span>
+        <span className="price">Free</span>
         <img src={"https://via.placeholder.com/300x300"} alt={"description"} />
       </div>
       <div className="details">
