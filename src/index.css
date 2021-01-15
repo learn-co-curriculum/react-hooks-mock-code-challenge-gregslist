@@ -1,0 +1,132 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  font-size: 14px;
+}
+
+header {
+  border-bottom: 1px #ccc solid;
+  background: #eee;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header h1 {
+  line-height: 1;
+  font-family: serif;
+}
+
+.logo {
+  margin-right: 0.5rem;
+  color: transparent;
+  text-shadow: 0 0 0 purple;
+}
+
+.searchbar {
+  flex: 1 1 auto;
+  margin: 0 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.searchbar input {
+  width: 90%;
+  font-size: 1rem;
+  height: 2rem;
+  margin-right: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding-left: 0.5rem;
+}
+
+.searchbar button {
+  padding: 0 0.25rem;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+main {
+  padding: 0 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.emoji-button {
+  border: none;
+  background: none;
+  padding: 0 0.25rem;
+  cursor: pointer;
+}
+
+.emoji-button.favorite {
+  color: transparent;
+  text-shadow: 0 0 0 gray;
+}
+
+.emoji-button.favorite.active,
+.emoji-button.favorite:hover {
+  text-shadow: 0 0 0 gold;
+  cursor: pointer;
+}
+
+.emoji-button.delete:hover {
+  text-shadow: 0 0 0 firebrick;
+  cursor: pointer;
+}
+
+.cards {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  margin: 1rem;
+  box-shadow: 0 0 7px 0 #ddd;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 300px;
+}
+
+.card .image {
+  height: 225px;
+  position: relative;
+  width: 300px;
+  display: flex;
+  justify-content: center;
+}
+
+.card .image .price {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.25rem;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  border-bottom-right-radius: 5px;
+  background: white;
+}
+
+.card .image img {
+  max-width: 300px;
+  max-height: 225px;
+  width: auto;
+  height: auto;
+}
+
+.card .details {
+  padding: 0.5rem;
+}
+
+.card .details strong {
+  font-family: serif;
+  font-size: 1rem;
+}
