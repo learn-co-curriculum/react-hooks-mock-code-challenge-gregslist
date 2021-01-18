@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ListingCard from "./ListingCard";
 
-function ListingsContainer() {
+function ListingsContainer({ search }) {
   const [listings, setListings] = useState([]);
 
   useEffect(() => {
@@ -17,7 +17,11 @@ function ListingsContainer() {
     setListings(updatedListingsArray);
   }
 
-  const listingCards = listings.map((listingObj) => {
+  const filteredListings = listings.filter((listing) => {
+    return listing.description.toLowerCase().includes(search.toLowerCase());
+  });
+
+  const listingCards = filteredListings.map((listingObj) => {
     return (
       <ListingCard
         key={listingObj.id}
