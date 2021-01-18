@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ListingCard from "./ListingCard";
+import NewListingForm from "./NewListingForm";
 
 function ListingsContainer({ search }) {
   const [listings, setListings] = useState([]);
@@ -15,6 +16,11 @@ function ListingsContainer({ search }) {
     const updatedListingsArray = listings.filter(
       (listing) => listing.id !== id
     );
+    setListings(updatedListingsArray);
+  }
+
+  function handleAddListing(newListing) {
+    const updatedListingsArray = [newListing, ...listings];
     setListings(updatedListingsArray);
   }
 
@@ -39,6 +45,7 @@ function ListingsContainer({ search }) {
 
   return (
     <main>
+      <NewListingForm onAddListing={handleAddListing} />
       <button onClick={() => setSortBy("id")}>Sort By Default</button>
       <button onClick={() => setSortBy("location")}>Sort By Location</button>
       <ul className="cards">{listingCards}</ul>
