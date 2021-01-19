@@ -2,8 +2,6 @@
 
 ## Solution Walkthrough
 
-<iframe width="1206" height="678" src="https://www.youtube.com/embed/dFMDK1LHZPo?list=PLc6AmvC5Zybwdqx2mqyXEDpyJk5uV03u9" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 [View on YouTube](https://www.youtube.com/watch?v=dFMDK1LHZPo&list=PLc6AmvC5Zybwdqx2mqyXEDpyJk5uV03u9&index=1)
 
 ## Demo
