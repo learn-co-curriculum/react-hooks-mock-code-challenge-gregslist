@@ -110,7 +110,7 @@ Request Object:
 }
 ```
 
-Example Response:
+Example response:
 
 ```json
 {
