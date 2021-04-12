@@ -17,11 +17,7 @@ function ListingCard({
     <li className="card">
       <div className="image">
         <span className="price">$0</span>
-<<<<<<< HEAD
         <img src={image} alt={description} />
-=======
-        <img src={"https://via.placeholder.com/300x300"} alt={"description"} />
->>>>>>> master
       </div>
       <div className="details">
         {favorite ? (
