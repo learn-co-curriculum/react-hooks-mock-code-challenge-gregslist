@@ -4,7 +4,7 @@
 
 Use this gif as an example of how the app should work.
 
-![Demo GIF](https://raw.githubusercontent.com/learn-co-curriculum/react-hooks-mock-code-challenge-gregslist/master/demo.gif)
+![Demo GIF](https://curriculum-content.s3.amazonaws.com/phase-2/react-hooks-mock-challenge-gregslist/demo.gif)
 
 ## Instructions
 
