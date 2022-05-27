@@ -15,7 +15,7 @@ bring the features to life by adding stateful logic as well as persisting data
 to the backend via our API.
 
 Your job will be to make our app work according to the user stories you will
-find the [Core Deliverables](#Core-Deliverables) section.
+find in the [Core Deliverables](#Core-Deliverables) section.
 
 ## Setup
 
