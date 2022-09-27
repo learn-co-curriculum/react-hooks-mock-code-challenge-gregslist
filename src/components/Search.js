@@ -1,6 +1,15 @@
-import React from "react";
+import {React, useState} from "react";
 
-function Search() {
+
+function Search({listings}) {
+
+const [name, setName] =useState('');
+
+function handleChange (e) {
+
+    console.log(e.target.value)
+    setName(e.target.value)
+}
   function handleSubmit(e) {
     e.preventDefault();
     console.log("submitted");
@@ -13,11 +22,12 @@ function Search() {
         id="search"
         placeholder="search free stuff"
         value={""}
-        onChange={(e) => console.log(e.target.value)}
+        onChange ={handleChange}
       />
       <button type="submit">🔍</button>
     </form>
   );
 }
+
 
 export default Search;
