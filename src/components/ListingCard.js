@@ -1,21 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 
-function ListingCard() {
+function ListingCard({ product, handleDelete }) {
+  const [isFavorite, setIsFavorite] = useState(false);
+  console.log(product);
+
+  const handleClick = () => {
+    setIsFavorite(!isFavorite);
+  };
+
+  const handleProductDelete = () => {
+    fetch(`http://localhost:6001/listings/${product.id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        handleDelete(product.id);
+      });
+  };
   return (
     <li className="card">
       <div className="image">
         <span className="price">$0</span>
-        <img src={"https://via.placeholder.com/300x300"} alt={"description"} />
+        <img src={product.image} alt={"description"} />
       </div>
       <div className="details">
-        {true ? (
-          <button className="emoji-button favorite active">★</button>
+        {isFavorite ? (
+          <button
+            onClick={handleClick}
+            className="emoji-button favorite active"
+          >
+            ★
+          </button>
         ) : (
-          <button className="emoji-button favorite">☆</button>
+          <button onClick={handleClick} className="emoji-button favorite">
+            ☆
+          </button>
         )}
-        <strong>{"description"}</strong>
-        <span> · {"location"}</span>
-        <button className="emoji-button delete">🗑</button>
+        <strong>{product.description}</strong>
+        <span> · {product.location}</span>
+        <button onClick={handleProductDelete} className="emoji-button delete">
+          🗑
+        </button>
       </div>
     </li>
   );
