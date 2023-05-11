@@ -1,20 +1,11 @@
-import React, {useState} from "react";
+import React,{useState} from "react";
 
-function Search({search , onhandleSubmit}) {
-  const [form, setForm] = useState('')
-
-  //need a handleChange form change 
-  //1. make form controlled using state Form 
-  //2. onSubmit change search in app.js
-  //need a  handleSubmit
-  // function handleSubmit(e) {
-  //   e.preventDefault();
-  //   console.log("submitted");
-  // }
-
+function Search({onSearch , search}) {
+  const [form , setForm] = useState('')
+  
   function handleSubmit(e) {
-    e.preventDefault()
-    onhandleSubmit(form)
+    e.preventDefault();
+    onSearch(form);
   }
 
   function handleForm(e) {
@@ -30,7 +21,7 @@ function Search({search , onhandleSubmit}) {
         value={form}
         onChange={(e) => handleForm(e.target.value)}
       />
-      <button type="submit" >🔍</button>
+      <button type="submit">🔍</button>
     </form>
   );
 }

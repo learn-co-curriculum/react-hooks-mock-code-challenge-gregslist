@@ -1,21 +1,21 @@
 import React, {useState} from "react";
 
-function ListingCard({listing , onDelete}) {
-  const [trueOrFalse , setTrueorFalse] = useState(true)
+function ListingCard({listing, onDelete}) {
+  const [truthy, setTruthy] = useState(false)
 
-  function handleTrueorFalse() {
-    setTrueorFalse(isitTrue => !isitTrue)
+  function handleTheTruth() {
+    setTruthy(intialTruth => !intialTruth)
   }
 
-  function handleDelete(e) {
-    e.preventDefault()
+  function handleDelete() {
     fetch(`http://localhost:6001/listings/${listing.id}` , {
       method: 'DELETE',
     })
     .then(res => res.json())
-    .then(() => {onDelete(listing.id)})}
+    .then(() => {onDelete(listing.id)})
     
-    
+  }
+
   return (
     <li className="card">
       <div className="image">
@@ -23,14 +23,13 @@ function ListingCard({listing , onDelete}) {
         <img src={listing.image} alt={listing.description} />
       </div>
       <div className="details">
-        {trueOrFalse ? (
-          <button className="emoji-button favorite active" onClick={handleTrueorFalse}>★</button>
+        {truthy ? (
+          <button className="emoji-button favorite active" onClick={handleTheTruth}>★</button>
         ) : (
-          <button className="emoji-button favorite" onClick={handleTrueorFalse}>☆</button>
+          <button className="emoji-button favorite" onClick={handleTheTruth}>☆</button>
         )}
         <strong>{listing.description}</strong>
-        <span> · {listing.location }</span>
-        {/* onClick for trashCan */}
+        <span> · {listing.location}</span>
         <button className="emoji-button delete" onClick={handleDelete}>🗑</button>
       </div>
     </li>

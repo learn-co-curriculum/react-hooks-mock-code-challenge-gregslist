@@ -1,16 +1,11 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import ListingCard from "./ListingCard";
 
-function ListingsContainer({listings , onDelete}) {
+function ListingsContainer({listings, onDelete}) {
 
   const displayListings = listings.map((listing) => {
-    return <ListingCard key={listing.id} listing={listing} onDelete={onDelete}/>
+    return <ListingCard key={listing.id} listing={listing} onDelete={onDelete} />
   })
-  // console.log(displayListings)
-
-  // const sortedList = listings.sort((a,b) => a.location.localeCompare(b.location))
-
-  
 
   return (
     <main>
@@ -18,9 +13,14 @@ function ListingsContainer({listings , onDelete}) {
         {/* use the ListingCard component to display listings */}
         {displayListings}
       </ul>
-      {/* <input type="checkbox" onClick={}/> */}
     </main>
   );
 }
 
 export default ListingsContainer;
+
+
+
+//.sort using location loCaleCompare
+// I can create a new listing by submitting a form, and persist the changes to the backend
+//POST COntrolledForm intialForm 

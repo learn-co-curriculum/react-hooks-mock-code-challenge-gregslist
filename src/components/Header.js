@@ -1,8 +1,7 @@
-import React,{useState, useEffect} from "react";
+import React from "react";
 import Search from "./Search";
 
-function Header({search , onhandleSubmit}) {
-  
+function Header({search ,onSearch}) {
   return (
     <header>
       <h1>
@@ -11,7 +10,7 @@ function Header({search , onhandleSubmit}) {
         </span>
         gregslist
       </h1>
-      <Search search={search} onhandleSubmit={onhandleSubmit} />
+      <Search search={search} onSearch={onSearch}/>
     </header>
   );
 }
