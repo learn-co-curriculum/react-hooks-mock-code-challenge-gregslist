@@ -30,7 +30,7 @@ function App() {
     })
       .then((res) => res.json())
       .then((data) => {
-        const filteredList = listings.filter((item) => item.id != id);
+        const filteredList = listings.filter((item) => item.id !== id);
         setListings(filteredList);
       });
   }
