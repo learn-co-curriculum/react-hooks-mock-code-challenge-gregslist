@@ -41,6 +41,18 @@
       "description": "Treadmill Parts For Free",
       "image": "./images/treadmill.jpg",
       "location": "East Flatbush"
+    },
+    {
+      "description": "weights",
+      "image": "https://previews.123rf.com/images/davidtran07/davidtran071804/davidtran07180400065/99235466-messy-pile-of-dumbbells-in-a-gym-corner-on-the-floor.jpg",
+      "location": "Glen Mills, PA",
+      "id": 9
+    },
+    {
+      "description": "Old Wheelbarrow",
+      "image": "https://www.housedigest.com/img/gallery/repurpose-an-old-wheelbarrow-into-a-stunning-cottage-garden-feature/intro-1716917272.jpg",
+      "location": "Glen Mills, PA",
+      "id": 11
     }
   ]
 }
