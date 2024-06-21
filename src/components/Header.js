@@ -1,7 +1,15 @@
-import React from "react";
-import Search from "./Search";
+import React from "react"
+import Search from "./Search"
 
-function Header() {
+function Header({ listings, setSearchedListings }) {
+  const searchListings = (search) => {
+    setSearchedListings(
+      listings.filter((listing) =>
+        listing.description.toLowerCase().includes(search.toLowerCase())
+      )
+    )
+  }
+
   return (
     <header>
       <h1>
@@ -10,9 +18,9 @@ function Header() {
         </span>
         gregslist
       </h1>
-      <Search />
+      <Search searchListings={searchListings} />
     </header>
-  );
+  )
 }
 
-export default Header;
+export default Header
