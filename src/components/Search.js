@@ -1,23 +1,20 @@
-import React from "react";
+import React from "react"
 
-function Search() {
+function Search({ onSearch }) {
   function handleSubmit(e) {
-    e.preventDefault();
-    console.log("submitted");
+    e.preventDefault()
+
+    const searchValue = e.target.querySelector("input").value
+
+    onSearch(searchValue)
   }
 
   return (
     <form className="searchbar" onSubmit={handleSubmit}>
-      <input
-        type="text"
-        id="search"
-        placeholder="search free stuff"
-        value={""}
-        onChange={(e) => console.log(e.target.value)}
-      />
+      <input type="text" id="search" placeholder="search free stuff" />
       <button type="submit">🔍</button>
     </form>
-  );
+  )
 }
 
-export default Search;
+export default Search
