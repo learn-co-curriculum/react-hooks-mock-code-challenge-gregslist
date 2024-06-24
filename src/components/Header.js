@@ -1,7 +1,8 @@
-import React from "react";
-import Search from "./Search";
+import React from "react"
+import Search from "./Search"
+import ListingForm from "./ListingForm"
 
-function Header() {
+function Header({ listings, setListings, originalListings }) {
   return (
     <header>
       <h1>
@@ -10,9 +11,19 @@ function Header() {
         </span>
         gregslist
       </h1>
-      <Search />
+
+      <div>
+        <Search
+          listings={listings}
+          setListings={setListings}
+          originalListings={originalListings}
+        />
+      </div>
+      <div>
+        <ListingForm listings={listings} setListings={setListings} />
+      </div>
     </header>
-  );
+  )
 }
 
-export default Header;
+export default Header
