@@ -1,11 +1,25 @@
-import React from "react";
-// import ListingCard from "./ListingCard";
+import React, { useState, useEffect } from "react";
+import ListingCard from "./ListingCard";
 
 function ListingsContainer() {
+  const [listings, setListings] = useState([])
+
+  useEffect(() => {
+    fetch("http://localhost:6001")
+      .then(resp => resp.json())
+      .then(data => setListings(data))
+  }, [])
+
   return (
     <main>
       <ul className="cards">
-        {/* use the ListingCard component to display listings */}
+        {listings.map((listing) => (
+          <ListingCard 
+            description={listing.description}
+            image={listing.image}
+            location={listing.location}
+          />
+        ))}
       </ul>
     </main>
   );
