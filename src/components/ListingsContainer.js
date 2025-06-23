@@ -11,11 +11,20 @@ function ListingsContainer() {
       .then((data) => setListings(data));
   }, []);
 
+  const deleteItem = (id) => {
+    fetch(listingsUrl + id, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then(setListings(listings.filter((item) => item.id !== id)));
+  };
+
   return (
     <main>
       <ul className="cards">
         {listings.map((item) => (
-          <ListingCard key={item.id} item={item} />
+          <ListingCard key={item.id} item={item} deleteItem={deleteItem} />
         ))}
       </ul>
     </main>

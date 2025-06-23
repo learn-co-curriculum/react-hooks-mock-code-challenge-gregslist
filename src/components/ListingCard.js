@@ -1,7 +1,7 @@
 import React from "react";
 import EmojiButton from "./EmojiButton";
 
-function ListingCard({ item }) {
+function ListingCard({ item, deleteItem }) {
   const { description, image, location } = item;
 
   return (
@@ -14,7 +14,12 @@ function ListingCard({ item }) {
         <EmojiButton />
         <strong>{description}</strong>
         <span> · {location}</span>
-        <button className="emoji-button delete">🗑</button>
+        <button
+          className="emoji-button delete"
+          onClick={() => deleteItem(item.id)}
+        >
+          🗑
+        </button>
       </div>
     </li>
   );
