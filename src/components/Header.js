@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Search from "./Search";
+import AddForm from "./AddForm";
 
 function Header({ listings, setSearchResults, setSearchMode, setIsSorted }) {
   const [isChecked, setIsChecked] = useState(false);
@@ -27,6 +28,7 @@ function Header({ listings, setSearchResults, setSearchMode, setIsSorted }) {
         }}
       />
       <label htmlFor="sort">Sort by location?</label>
+      <AddForm />
     </header>
   );
 }
