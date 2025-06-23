@@ -1,4 +1,5 @@
 import React from "react";
+import EmojiButton from "./EmojiButton";
 
 function ListingCard({ item }) {
   const { description, image, location } = item;
@@ -10,11 +11,7 @@ function ListingCard({ item }) {
         <img src={image} alt={description} />
       </div>
       <div className="details">
-        {true ? (
-          <button className="emoji-button favorite active">★</button>
-        ) : (
-          <button className="emoji-button favorite">☆</button>
-        )}
+        <EmojiButton />
         <strong>{description}</strong>
         <span> · {location}</span>
         <button className="emoji-button delete">🗑</button>

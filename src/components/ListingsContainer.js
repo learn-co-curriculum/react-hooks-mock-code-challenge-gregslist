@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ListingCard from "./ListingCard";
 
 function ListingsContainer() {
-  const listingsUrl = "http://localhost:6001/listings";
+  const listingsUrl = "http://localhost:6001/listings/";
   const [listings, setListings] = useState([]);
 
   useEffect(() => {
