@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ListingCard from "./ListingCard";
 
-function ListingsContainer() {
+function ListingsContainer({ searchItem }) {
   const url = "http://localhost:6001/listings/";
   const [listings, setListings] = useState([]);
 
@@ -14,7 +14,7 @@ function ListingsContainer() {
   }, []);
 
   const renderListings = () =>
-    listings.map((listing) => (
+    filteredListing.map((listing) => (
       <ListingCard
         id={listing.id}
         key={listing.id}
@@ -38,6 +38,10 @@ function ListingsContainer() {
       .then((res) => res.json())
       .then(() => deleteListing(id));
   };
+
+  const filteredListing = listings.filter((listing) =>
+    listing.description.toLowerCase().includes(searchItem.toLowerCase())
+  );
 
   return (
     <main>
