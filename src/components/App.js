@@ -4,6 +4,7 @@ import ListingsContainer from "./ListingsContainer";
 
 function App() {
   const [listings, setListings] = useState([]);
+  const [unsortedListings, setUnsortedListings] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
   const [searchMode, setSearchMode] = useState(false);
   const [isSorted, setIsSorted] = useState(false);
@@ -13,6 +14,17 @@ function App() {
       setSearchResults(listings);
     }
   }, [listings, searchMode]);
+
+  useEffect(() => {
+    if (isSorted) {
+      const sortedListings = [...listings].sort((a, b) =>
+        a.location.localeCompare(b.location)
+      );
+      setListings(sortedListings);
+    } else {
+      setListings(unsortedListings);
+    }
+  }, [isSorted]);
 
   return (
     <div className="app">
@@ -26,6 +38,7 @@ function App() {
         listings={searchMode ? searchResults : listings}
         setListings={setListings}
         setSearchResults={setSearchResults}
+        setUnsortedListings={setUnsortedListings}
       />
     </div>
   );

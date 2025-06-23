@@ -1,11 +1,19 @@
 import React, { useEffect } from "react";
 import ListingCard from "./ListingCard";
 
-function ListingsContainer({ listings, setListings, setSearchResults }) {
+function ListingsContainer({
+  listings,
+  setListings,
+  setSearchResults,
+  setUnsortedListings,
+}) {
   useEffect(() => {
     fetch("http://localhost:6001/listings/")
       .then((r) => r.json())
-      .then((data) => setListings(data));
+      .then((data) => {
+        setListings(data);
+        setUnsortedListings(data);
+      });
   }, []);
 
   const deleteItem = (id) => {
