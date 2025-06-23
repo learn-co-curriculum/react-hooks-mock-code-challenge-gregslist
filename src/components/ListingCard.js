@@ -1,18 +1,20 @@
 import React, { useState } from "react";
 
-function ListingCard({ src, alt, description, location, onDelete, id }) {
+function ListingCard({ listing, onDelete }) {
+  const { id, image, description, location } = listing;
   const [isFavorited, setIsFavorited] = useState(false);
 
   const handleFavorite = () => {
     setIsFavorited(!isFavorited);
   };
+
   const handleDelete = () => onDelete(id);
 
   return (
     <li className="card">
       <div className="image">
         <span className="price">$0</span>
-        <img src={src} alt={alt} />
+        <img src={image} alt={description} />
       </div>
       <div className="details">
         <button

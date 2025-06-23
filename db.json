@@ -41,12 +41,6 @@
       "description": "Treadmill Parts For Free",
       "image": "./images/treadmill.jpg",
       "location": "East Flatbush"
-    },
-    {
-      "description": "Stove's Boarding Pass",
-      "image": "https://i.etsystatic.com/39763219/r/il/51b51e/4517343273/il_fullxfull.4517343273_h3l8.jpg",
-      "location": "Austin, TX",
-      "id": 8
     }
   ]
 }
