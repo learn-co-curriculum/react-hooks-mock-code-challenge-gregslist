@@ -1,12 +1,13 @@
-import React from "react";
+import { useState } from "react";
 import Header from "./Header";
 import ListingsContainer from "./ListingsContainer";
 
 function App() {
+  const [listings, setListings] = useState([]);
   return (
     <div className="app">
-      <Header />
-      <ListingsContainer />
+      <Header listings={listings} setListings={setListings} />
+      <ListingsContainer listings={listings} setListings={setListings} />
     </div>
   );
 }
