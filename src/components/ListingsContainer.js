@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import ListingCard from "./ListingCard";
 
-function ListingsContainer({ listings, setListings }) {
+function ListingsContainer({ listings, setListings, setSearchResults }) {
   useEffect(() => {
     fetch("http://localhost:6001/listings/")
       .then((r) => r.json())
@@ -14,7 +14,12 @@ function ListingsContainer({ listings, setListings }) {
       headers: {
         "Content-Type": "application/json",
       },
-    }).then(setListings(listings.filter((item) => item.id !== id)));
+    }).then(() => {
+      setListings((prevListings) =>
+        prevListings.filter((item) => item.id !== id)
+      );
+      setSearchResults((prev) => prev.filter((item) => item.id !== id));
+    });
   };
 
   return (
