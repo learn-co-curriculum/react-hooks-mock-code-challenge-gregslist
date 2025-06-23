@@ -6,6 +6,7 @@ function App() {
   const [listings, setListings] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
   const [searchMode, setSearchMode] = useState(false);
+  const [isSorted, setIsSorted] = useState(false);
 
   useEffect(() => {
     if (!searchMode) {
@@ -19,6 +20,7 @@ function App() {
         listings={listings}
         setSearchResults={setSearchResults}
         setSearchMode={setSearchMode}
+        setIsSorted={setIsSorted}
       />
       <ListingsContainer
         listings={searchMode ? searchResults : listings}
