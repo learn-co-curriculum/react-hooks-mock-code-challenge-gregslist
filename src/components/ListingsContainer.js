@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import ListingCard from "./ListingCard";
 
 function ListingsContainer() {
-  const url = "http://localhost:6001/listings";
+  const url = "http://localhost:6001/listings/";
   const [listings, setListings] = useState([]);
 
   useEffect(() => {
@@ -12,18 +12,32 @@ function ListingsContainer() {
         setListings(data);
       });
   }, []);
-  console.log(listings);
 
   const renderListings = () =>
     listings.map((listing) => (
       <ListingCard
+        id={listing.id}
         key={listing.id}
         src={listing.image}
         alt={listing.description}
         description={listing.description}
         location={listing.location}
+        onDelete={handleDelete}
       />
     ));
+
+  const deleteListing = (id) => {
+    const updatedListing = listings.filter((listing) => listing.id !== id);
+    setListings(updatedListing);
+  };
+
+  const handleDelete = (id) => {
+    fetch(`${url}${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then(() => deleteListing(id));
+  };
 
   return (
     <main>
