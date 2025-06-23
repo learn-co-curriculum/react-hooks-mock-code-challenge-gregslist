@@ -4,7 +4,6 @@ import ListingsContainer from "./ListingsContainer";
 
 function App() {
   const [searchItem, setSearchItem] = useState("");
-  console.log(searchItem);
 
   return (
     <div className="app">

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ListingCard from "./ListingCard";
+import AddItem from "./AddItem";
 
 function ListingsContainer({ searchItem }) {
   const url = "http://localhost:6001/listings/";
@@ -43,8 +44,23 @@ function ListingsContainer({ searchItem }) {
     listing.description.toLowerCase().includes(searchItem.toLowerCase())
   );
 
+  const handleNewListing = (newListing) => {
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newListing),
+    })
+      .then((res) => res.json())
+      .then((newItem) => {
+        setListings([...listings, newItem]);
+      });
+  };
+
   return (
     <main>
+      <AddItem handleNewListing={handleNewListing} />
       <ul className="cards">{renderListings()}</ul>
     </main>
   );

@@ -1,5 +1,6 @@
 import React from "react";
 import Search from "./Search";
+import AddItem from "./AddItem";
 
 function Header({ setSearchItem }) {
   return (
