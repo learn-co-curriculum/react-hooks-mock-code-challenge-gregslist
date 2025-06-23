@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import ListingCard from "./ListingCard";
 
 function ListingsContainer({ setListings, listings }) {
@@ -11,7 +11,13 @@ function ListingsContainer({ setListings, listings }) {
     <main>
       <ul className="cards">
         {listings.map((listing) => {
-          return <ListingCard listing={listing} setListings={setListings} />;
+          return (
+            <ListingCard
+              listing={listing}
+              setListings={setListings}
+              key={listing.id}
+            />
+          );
         })}
       </ul>
     </main>
