@@ -1,11 +1,14 @@
 import { useEffect } from "react";
 import ListingCard from "./ListingCard";
 
-function ListingsContainer({ setListings, listings }) {
+function ListingsContainer({ setListings, listings, getAllListings }) {
   useEffect(() => {
-    fetch("http://localhost:6001/listings")
-      .then((r) => r.json())
-      .then(setListings);
+    const fetchListings = async () => {
+      const data = await getAllListings();
+      setListings(data);
+    };
+
+    fetchListings();
   }, []);
   return (
     <main>
