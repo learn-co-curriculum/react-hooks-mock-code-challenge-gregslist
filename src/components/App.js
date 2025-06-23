@@ -30,6 +30,8 @@ function App() {
     <div className="app">
       <Header
         listings={listings}
+        setListings={setListings}
+        setUnsortedListings={setUnsortedListings}
         setSearchResults={setSearchResults}
         setSearchMode={setSearchMode}
         setIsSorted={setIsSorted}
@@ -38,7 +40,6 @@ function App() {
         listings={searchMode ? searchResults : listings}
         setListings={setListings}
         setSearchResults={setSearchResults}
-        setUnsortedListings={setUnsortedListings}
       />
     </div>
   );

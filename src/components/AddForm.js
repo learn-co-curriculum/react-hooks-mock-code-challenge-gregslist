@@ -1,13 +1,28 @@
 import React, { useState } from "react";
 
-const AddForm = () => {
+const AddForm = ({ listings, setListings }) => {
   const [description, setDescription] = useState("");
   const [image, setImage] = useState("");
   const [location, setLocation] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(description + image + location);
+    const newListing = {
+      description: description,
+      image: image,
+      location: location,
+    };
+
+    fetch("http://localhost:6001/listings", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(newListing),
+    })
+      .then((r) => r.json())
+      .then((response) => setListings([...listings, response]));
   };
 
   return (
