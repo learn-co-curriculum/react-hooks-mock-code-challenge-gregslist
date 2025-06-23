@@ -1,18 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import ListingCard from "./ListingCard";
 
-function ListingsContainer() {
-  const listingsUrl = "http://localhost:6001/listings/";
-  const [listings, setListings] = useState([]);
-
+function ListingsContainer({ listings, setListings }) {
   useEffect(() => {
-    fetch(listingsUrl)
+    fetch("http://localhost:6001/listings/")
       .then((r) => r.json())
       .then((data) => setListings(data));
   }, []);
 
   const deleteItem = (id) => {
-    fetch(listingsUrl + id, {
+    fetch(`http://localhost:6001/listings/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
