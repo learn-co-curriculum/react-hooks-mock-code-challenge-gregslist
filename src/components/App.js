@@ -14,13 +14,24 @@ function App() {
     setFilteredListings(newListings)
   }
 
+  const handleSort = (isSort) => {
+    const sortedListings = [...filteredListings].sort((a, b) => {
+      if (isSort) {
+        return a.location.localeCompare(b.location)
+      }
+      return a.id - b.id
+    })
+
+    setFilteredListings(sortedListings)
+  }
+
   useEffect(() => {
     setFilteredListings(listings)
   }, [listings])
 
   return (
     <div className="app">
-      <Header onSearch={handleSearch} />
+      <Header onSearch={handleSearch} onSort={handleSort} />
       <ListingsContainer
         listings={filteredListings}
         setListings={setListings}
