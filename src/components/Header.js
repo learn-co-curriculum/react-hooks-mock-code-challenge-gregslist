@@ -1,7 +1,8 @@
-import React from "react";
-import Search from "./Search";
+import React from "react"
+import Search from "./Search"
+import Sort from "./Sort"
 
-function Header() {
+function Header({ onSearch, onSort }) {
   return (
     <header>
       <h1>
@@ -10,9 +11,10 @@ function Header() {
         </span>
         gregslist
       </h1>
-      <Search />
+      <Search onSearch={onSearch} />
+      <Sort onSort={onSort} />
     </header>
-  );
+  )
 }
 
-export default Header;
+export default Header
