@@ -6,7 +6,9 @@
     "json-server": "^0.16.3",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-scripts": "^5.0.1"
+    "react-scripts": "^5.0.1",
+    "semantic-ui-css": "^2.5.0",
+    "semantic-ui-react": "^2.1.5"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -53,6 +53,30 @@ header h1 {
   border-radius: 3px;
 }
 
+button.sort,
+button.new {
+  background-color: purple;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.new-form {
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px #ccc solid;
+}
+
+.new-item {
+  padding: 5px;
+  margin: 10px;
+}
+
 main {
   padding: 0 1rem;
   max-width: 1200px;
@@ -86,6 +110,7 @@ main {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .card {
