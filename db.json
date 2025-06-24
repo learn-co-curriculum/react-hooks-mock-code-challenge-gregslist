@@ -19,18 +19,6 @@
       "location": "Williamsburg"
     },
     {
-      "id": 4,
-      "description": "FREE Hundreds of DVD/CD Cases - Different Sizes and Colors",
-      "image": "./images/dvd-cases.jpg",
-      "location": "Prospect Heights"
-    },
-    {
-      "id": 5,
-      "description": "wood",
-      "image": "./images/wood.jpg",
-      "location": "Greenpoint"
-    },
-    {
       "id": 6,
       "description": "Beautiful couch",
       "image": "./images/couch.jpg",
