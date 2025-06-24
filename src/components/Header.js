@@ -1,5 +1,5 @@
-import React from "react";
-import Search from "./Search";
+import React from "react"
+import Search from "./Search"
 
 function Header() {
   return (
@@ -12,7 +12,7 @@ function Header() {
       </h1>
       <Search />
     </header>
-  );
+  )
 }
 
-export default Header;
+export default Header

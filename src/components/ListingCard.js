@@ -1,6 +1,6 @@
-import React from "react";
+import React from "react"
 
-function ListingCard() {
+function ListingCard({ listing }) {
   return (
     <li className="card">
       <div className="image">
@@ -18,7 +18,7 @@ function ListingCard() {
         <button className="emoji-button delete">🗑</button>
       </div>
     </li>
-  );
+  )
 }
 
-export default ListingCard;
+export default ListingCard
