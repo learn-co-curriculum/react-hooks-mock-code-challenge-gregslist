@@ -21,7 +21,7 @@ function ListingsContainer({ searchItem }) {
       <ListingCard key={listing.id} listing={listing} onDelete={handleDelete} />
     ));
 
-  const filteredListing = listings.filter((listing) =>
+  const filteredListing = [...listings].filter((listing) =>
     listing.description.toLowerCase().includes(searchItem.toLowerCase())
   );
 
