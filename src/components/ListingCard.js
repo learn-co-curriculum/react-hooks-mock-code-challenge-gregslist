@@ -1,10 +1,16 @@
 import React, { useState } from "react"
 
-function ListingCard({ listing }) {
+function ListingCard({ listing, onRemoveListing }) {
   const [isFavorite, setIsFavorite] = useState(false)
 
   const handleFavoriteClick = () => {
     setIsFavorite(!isFavorite)
+  }
+
+  const handleDelete = () => {
+    fetch("http://localhost:6001/listings/" + listing.id, {
+      method: "DELETE",
+    }).then(() => onRemoveListing(listing))
   }
 
   return (
@@ -31,7 +37,9 @@ function ListingCard({ listing }) {
         )}
         <strong>{listing.description}</strong>
         <span> · {listing.location}</span>
-        <button className="emoji-button delete">🗑</button>
+        <button onClick={handleDelete} className="emoji-button delete">
+          🗑
+        </button>
       </div>
     </li>
   )
