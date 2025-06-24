@@ -3,6 +3,8 @@ import React, { useState } from "react"
 function Search({ onSearch }) {
   const [searchTerm, setSearchTerm] = useState("")
 
+  const handleChange = (event) => setSearchTerm(event.target.value)
+
   function handleSubmit(e) {
     e.preventDefault()
     onSearch(searchTerm)
@@ -15,7 +17,7 @@ function Search({ onSearch }) {
         id="search"
         placeholder="search free stuff"
         value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
+        onChange={handleChange}
       />
       <button type="submit">🔍</button>
     </form>

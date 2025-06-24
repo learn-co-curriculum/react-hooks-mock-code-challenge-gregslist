@@ -1,39 +1,32 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import Header from "./Header"
 import ListingsContainer from "./ListingsContainer"
 
 function App() {
   const [listings, setListings] = useState([])
-  const [filteredListings, setFilteredListings] = useState([])
+  const [search, setSearch] = useState("")
+  const [sort, setSort] = useState(false)
 
-  const handleSearch = (searchTerm) => {
-    const newListings = listings.filter((listing) =>
-      listing.description.includes(searchTerm)
-    )
-
-    setFilteredListings(newListings)
+  const handleSort = () => {
+    setSort(!sort)
   }
 
-  const handleSort = (isSort) => {
-    const sortedListings = [...filteredListings].sort((a, b) => {
-      if (isSort) {
-        return a.location.localeCompare(b.location)
-      }
-      return a.id - b.id
-    })
+  const filteredListings = listings.filter((listing) =>
+    listing.description.includes(search)
+  )
 
-    setFilteredListings(sortedListings)
-  }
-
-  useEffect(() => {
-    setFilteredListings(listings)
-  }, [listings])
+  const filteredAndSortedListings = [...filteredListings].sort((a, b) => {
+    if (sort) {
+      return a.location.localeCompare(b.location)
+    }
+    return a.id - b.id
+  })
 
   return (
     <div className="app">
-      <Header onSearch={handleSearch} onSort={handleSort} />
+      <Header onSearch={setSearch} onSort={handleSort} />
       <ListingsContainer
-        listings={filteredListings}
+        listings={filteredAndSortedListings}
         setListings={setListings}
       />
     </div>
