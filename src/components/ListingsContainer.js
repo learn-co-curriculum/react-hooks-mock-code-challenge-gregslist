@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect } from "react"
 import ListingCard from "./ListingCard"
 
-function ListingsContainer() {
-  const [listings, setListings] = useState([])
-
+function ListingsContainer({ listings, setListings }) {
   const handleRemoveListing = (deletedListing) => {
     const filteredListings = listings.filter(
       (listing) => listing !== deletedListing
