@@ -13,12 +13,6 @@
       "location": "Williamsburg"
     },
     {
-      "id": 3,
-      "description": "Free Braun 3735 Electric Toothbrush charger",
-      "image": "./images/toothbrush-charger.jpg",
-      "location": "Williamsburg"
-    },
-    {
       "id": 4,
       "description": "FREE Hundreds of DVD/CD Cases - Different Sizes and Colors",
       "image": "./images/dvd-cases.jpg",
@@ -41,6 +35,12 @@
       "description": "Treadmill Parts For Free",
       "image": "./images/treadmill.jpg",
       "location": "East Flatbush"
+    },
+    {
+      "location": "tampa bay",
+      "description": "My desc",
+      "image": "iamge",
+      "id": 8
     }
   ]
 }

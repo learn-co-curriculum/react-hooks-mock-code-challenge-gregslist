@@ -1,15 +1,6 @@
-function Search({ setListings, getAllListings }) {
+function Search({ filterListings }) {
   const updateSearchValue = async (e) => {
-    const fetchAndFilterListings = async () => {
-      const allListings = await getAllListings();
-      return allListings.filter((currentListing) => {
-        return (
-          e.target.value === "" ||
-          currentListing.description.toLowerCase().includes(e.target.value)
-        );
-      });
-    };
-    setListings(await fetchAndFilterListings());
+    await filterListings(e.target.value);
   };
 
   function handleSubmit(e) {

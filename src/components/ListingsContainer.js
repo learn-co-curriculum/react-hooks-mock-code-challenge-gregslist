@@ -1,15 +1,6 @@
-import { useEffect } from "react";
 import ListingCard from "./ListingCard";
 
-function ListingsContainer({ setListings, listings, getAllListings }) {
-  useEffect(() => {
-    const fetchListings = async () => {
-      const data = await getAllListings();
-      setListings(data);
-    };
-
-    fetchListings();
-  }, []);
+function ListingsContainer({ listings, deleteListing }) {
   return (
     <main>
       <ul className="cards">
@@ -17,7 +8,7 @@ function ListingsContainer({ setListings, listings, getAllListings }) {
           return (
             <ListingCard
               listing={listing}
-              setListings={setListings}
+              deleteListing={deleteListing}
               key={listing.id}
             />
           );

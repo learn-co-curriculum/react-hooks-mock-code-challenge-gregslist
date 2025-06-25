@@ -1,25 +1,12 @@
 import { useState } from "react";
 
-function ListingCard({ listing, setListings }) {
+function ListingCard({ listing, deleteListing }) {
   const [isFavorited, setIsFavorited] = useState(false);
   const toggleIsFavorited = () => {
     setIsFavorited((currentStatus) => !currentStatus);
   };
-  const deleteListing = () => {
-    deleteListingFromState();
-    deleteListingFromDB();
-  };
-  const deleteListingFromState = () => {
-    setListings((currentListings) =>
-      currentListings.filter(
-        (currentListing) => currentListing.id !== listing.id,
-      ),
-    );
-  };
-  const deleteListingFromDB = () => {
-    fetch(`http://localhost:6001/listings/${listing.id}`,{
-      method: 'DELETE'
-    } );
+  const handleDelete = () => {
+    deleteListing(listing.id);
   };
   return (
     <li className="card">
@@ -42,7 +29,7 @@ function ListingCard({ listing, setListings }) {
         )}
         <strong>{listing.description}</strong>
         <span> · {listing.location}</span>
-        <button className="emoji-button delete" onClick={deleteListing}>
+        <button className="emoji-button delete" onClick={handleDelete}>
           🗑
         </button>
       </div>

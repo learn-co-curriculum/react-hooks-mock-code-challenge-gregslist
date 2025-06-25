@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Header({ setListings }) {
+function AddForm({ addListing }) {
   const defaultValues = {
     location: "",
     description: "",
@@ -17,18 +17,10 @@ function Header({ setListings }) {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    fetch("http://localhost:6001/listings", {
-      method: "POST",
-      body: JSON.stringify(newLocationObj),
-      headers: { "Content-Type": "application/json" },
-    })
-      .then((r) => r.json())
-      .then((addedListing) => {
-        setListings((currListings) => [...currListings, addedListing]);
-        setNewLocationObj(defaultValues);
-      });
+    await addListing(newLocationObj);
+    setNewLocationObj(defaultValues);
   };
   return (
     <div id="addForm">
@@ -70,4 +62,4 @@ function Header({ setListings }) {
   );
 }
 
-export default Header;
+export default AddForm;
