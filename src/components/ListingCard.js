@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 
 function ListingCard({ listing }) {
 	const { description, image, location } = listing;
+	const [isFavorited, setIsFavorited] = useState(false);
+
+	function handleFavoriteClick() {
+		setIsFavorited((isFavorited) => !isFavorited);
+	}
 
 	return (
 		<li className="card">
@@ -10,10 +15,20 @@ function ListingCard({ listing }) {
 				<img src={image} alt={description} />
 			</div>
 			<div className="details">
-				{true ? (
-					<button className="emoji-button favorite active">★</button>
+				{isFavorited ? (
+					<button
+						className="emoji-button favorite active"
+						onClick={handleFavoriteClick}
+					>
+						★
+					</button>
 				) : (
-					<button className="emoji-button favorite">☆</button>
+					<button
+						className="emoji-button favorite"
+						onClick={handleFavoriteClick}
+					>
+						☆
+					</button>
 				)}
 				<strong>{description}</strong>
 				<span> · {location}</span>
