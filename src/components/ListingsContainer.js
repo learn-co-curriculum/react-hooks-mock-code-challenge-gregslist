@@ -1,11 +1,20 @@
 import React from "react";
-// import ListingCard from "./ListingCard";
+import ListingCard from "./ListingCard";
 
-function ListingsContainer() {
+function ListingsContainer({ listings = [], onDeleteListing }) {
+  const sortedListings = [...listings].sort((a, b) =>
+    a.location.localeCompare(b.location),
+  );
   return (
     <main>
       <ul className="cards">
-        {/* use the ListingCard component to display listings */}
+        {sortedListings.map((listing) => (
+          <ListingCard
+            key={listing.id}
+            listing={listing}
+            onDeleteListing={onDeleteListing}
+          />
+        ))}
       </ul>
     </main>
   );
