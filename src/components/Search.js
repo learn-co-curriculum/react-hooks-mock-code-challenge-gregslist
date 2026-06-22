@@ -1,9 +1,14 @@
-import React from "react";
+import React, {useState, useContext} from "react";
+import { SearchContext } from "../context/serachTerm";
 
 function Search() {
+  const [inputText, setInputText] = useState("")
+  const [searchTerm, setSearchTerm] = useContext(SearchContext)
+
   function handleSubmit(e) {
+    console.log("search executed", inputText)
     e.preventDefault();
-    console.log("submitted");
+    setSearchTerm(inputText)
   }
 
   return (
@@ -12,8 +17,8 @@ function Search() {
         type="text"
         id="search"
         placeholder="search free stuff"
-        value={""}
-        onChange={(e) => console.log(e.target.value)}
+        value={inputText}
+        onChange={(e) => setInputText(e.target.value)}
       />
       <button type="submit">🔍</button>
     </form>
