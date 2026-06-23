@@ -4,6 +4,7 @@ import ListingsContainer from "./ListingsContainer";
 
 function App() {
   const [listings, setListings] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     fetch("http://localhost:6001/listings")
@@ -12,18 +13,29 @@ function App() {
   }, []);
 
   function handleDeleteListing(id) {
-  fetch(`http://localhost:6001/listings/${id}`, {
-    method: "DELETE",
-  });
+    fetch(`http://localhost:6001/listings/${id}`, {
+      method: "DELETE",
+    });
 
-  const updatedListings = listings.filter((listing) => listing.id !== id);
-  setListings(updatedListings);
-}
+    const updatedListings = listings.filter((listing) => listing.id !== id);
+    setListings(updatedListings);
+  }
+
+  const displayedListings = listings.filter((listing) =>
+    listing.description.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <div className="app">
-      <Header />
-      <ListingsContainer listings={listings} />
+      <Header
+        searchTerm={searchTerm}
+        onSearchChange={setSearchTerm}
+      />
+
+      <ListingsContainer
+        listings={displayedListings}
+        onDeleteListing={handleDeleteListing}
+      />
     </div>
   );
 }
