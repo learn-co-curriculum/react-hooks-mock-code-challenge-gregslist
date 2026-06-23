@@ -11,6 +11,15 @@ function App() {
       .then((data) => setListings(data));
   }, []);
 
+  function handleDeleteListing(id) {
+  fetch(`http://localhost:6001/listings/${id}`, {
+    method: "DELETE",
+  });
+
+  const updatedListings = listings.filter((listing) => listing.id !== id);
+  setListings(updatedListings);
+}
+
   return (
     <div className="app">
       <Header />
