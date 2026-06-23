@@ -1,16 +1,14 @@
 import React from "react";
 import Search from "./Search";
 
-function Header() {
+function Header({ searchTerm, onSearchChange }) {
   return (
     <header>
       <h1>
-        <span className="logo" role="img">
-          ☮
-        </span>
+        <span className="logo">☮</span>
         gregslist
       </h1>
-      <Search />
+      <Search searchTerm={searchTerm} onSearchChange={onSearchChange} />
     </header>
   );
 }
